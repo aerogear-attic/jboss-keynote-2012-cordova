@@ -1,0 +1,45 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+        <title>Mobile Catalog</title> 
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+            <link rel="stylesheet" href="assets/css/main.css" />
+            <script src="assets/js/libs/cordova-ios-1.8.1.js"></script>
+            <script data-main="app/main" src="assets/js/libs/require.js"></script>
+            <script type="text/javascript" src="assets/js/libs/AppBlade-iOS.js"></script>
+            <script type="text/javascript" charset="utf-8">
+                document.addEventListener("deviceready", onDeviceReady, false);
+                
+                function onDeviceReady() {
+                    
+                    window.plugins.appBlade.setupAppBlade('XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX','XXXXXX','XXXXXXX','XXXXXXXXX');
+                    
+                    
+                    /*
+                     * AppBladePlugin Instructions
+                     *
+                     * Add checks to both onDeviceReady and onResume
+                     * iOS - checkAuthentication
+                     * Android - registerDevice
+                     *
+                     * iOS checkAuthentication wraps registerDevice
+                     *
+                     */
+                    
+                    window.plugins.appBlade.checkAuthentication();
+//                    window.plugins.appBlade.registerDevice();
+                    
+                    document.addEventListener("resume", onResume, false);
+                }
+                
+                function onResume() {
+                    window.plugins.appBlade.checkAuthentication();
+//                   window.plugins.appBlade.registerDevice();
+                }
+                
+                </script>
+    </head> 
+    <body> 
+        <div data-role="page" id="main" data-theme="c"></div>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>Mobile Catalog</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <script src="cordova-1.8.1.js"></script>
+    <script data-main="app/main" src="assets/js/libs/require.js"></script>
+    <script src="assets/js/libs/appblade.js"></script>
+    <script type="text/javascript" charset="utf-8">
+        document.addEventListener("deviceready", onDeviceReady, false);
+
+        function onDeviceReady() {
+            appBladeAuthorize(device.uuid, device.name, device.version, "062f0f43-dc15-4751-b6c7-0375483d133f", "RIM");
+            document.addEventListener("resume", onResume, false);
+        }
+
+        function onResume(){
+            appBladeAuthorize(device.uuid, device.name, device.version, "062f0f43-dc15-4751-b6c7-0375483d133f", "RIM");
+        }
+    </script>
+</head> 
+<body> 
+    <div data-role="page" id="main" data-theme="c"></div>
+</body>
+</html>
